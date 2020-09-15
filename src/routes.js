@@ -24,7 +24,12 @@ routes.post('/register', (req, res) => {
 
   writeFile(reading);
 
-  res.send({ id, prova, data, horario, local });
+  res.status(200).send({ id, prova, data, horario, local });
+});
+
+routes.get('/view', (req, res) => {
+  const reading = readFile();
+  res.status(200).send(reading);
 });
 
 module.exports = routes;
